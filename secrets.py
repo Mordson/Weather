@@ -1,1 +1,1 @@
-url = 'https://api.openweathermap.org/data/2.5/weather?lat=52.23&lon=21.01&appid=f96032cf675ea0097f776d08a25c4819&units=metric&lang=pl&wind.direction.value'.format()
+

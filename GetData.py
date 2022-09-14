@@ -3,6 +3,10 @@ from sqlite3 import Error
 
 database = r"WeatherDB.db"
 
+TemperatureTable = []
+SpeedOfWindTable = []
+WindDegreeTable = []
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database"""
     conn = None
@@ -13,26 +17,58 @@ def create_connection(db_file):
 
     return conn
 
-def SelectSpeedAngle(conn):
+def SelectTemperature(conn):
     """
-    Select Speed of wind and angle of wind
+    Select Speed of angle of wind and pass it to table
     """
+    TemperatureTable = []
+
     cur = conn.cursor()
-    cur.execute("SELECT SpeedOfWind, Angle FROM Wind")
+    cur.execute("SELECT Temperature FROM Temperature")
 
     rows = cur.fetchall()
 
     for row in rows:
-        print(row)
+        TemperatureTable.append(row[0])
 
+    cur.close()
+    
+    return TemperatureTable
 
-def main():
+def SelectSpeed(conn):
+    """
+    Select Speed of wind and pass it to table
+    """
+    
+    SpeedOfWindTable = []
 
-    # create a database connection
-    conn = create_connection(database)
-    with conn:
-        SelectSpeedAngle(conn)
+    cur = conn.cursor()
+    cur.execute("SELECT SpeedOfWind FROM Wind")
 
+    rows = cur.fetchall()
 
-if __name__ == '__main__':
-    main()
+    for row in rows:
+        SpeedOfWindTable.append(row[0])
+
+    cur.close()
+    
+    return SpeedOfWindTable
+
+def SelectAngle(conn):
+    """
+    Select Speed of angle of wind and pass it to table
+    """
+    
+    WindDegreeTable = []
+    
+    cur = conn.cursor()
+    cur.execute("SELECT Angle FROM Wind")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        WindDegreeTable.append(row[0])
+
+    cur.close()
+
+    return WindDegreeTable

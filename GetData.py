@@ -3,10 +3,6 @@ from sqlite3 import Error
 
 database = r"WeatherDB.db"
 
-TemperatureTable = []
-SpeedOfWindTable = []
-WindDegreeTable = []
-
 def create_connection(db_file):
     """ create a database connection to the SQLite database"""
     conn = None
@@ -51,7 +47,6 @@ def SelectSpeed(conn):
         SpeedOfWindTable.append(row[0])
 
     cur.close()
-    
     return SpeedOfWindTable
 
 def SelectAngle(conn):
@@ -70,5 +65,4 @@ def SelectAngle(conn):
         WindDegreeTable.append(row[0])
 
     cur.close()
-
     return WindDegreeTable

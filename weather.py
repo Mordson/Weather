@@ -20,4 +20,4 @@ def WindDegree(response):
 
 Temperature = Temp(GetJson(secrets.url)) #temperature in Warsaw
 SpeedOfWind = WindSpeed(GetJson(secrets.url)) #speed of wind in Warsaw
-WindDegree = WindDegree(GetJson(secrets.url)) #degree of wind
+DegreeOfWind = WindDegree(GetJson(secrets.url)) #degree of wind

@@ -20,4 +20,4 @@ def InsertWindSpeed(WindSpeed,Winddeg):
     except Exception as e:
         print(e)
      
-InsertWindSpeed(weather.WindSpeed,weather.WindDegree)
+InsertWindSpeed(weather.SpeedOfWind,weather.DegreeOfWind)

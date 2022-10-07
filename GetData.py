@@ -20,7 +20,7 @@ def SelectTemperature(conn):
     TemperatureTable = []
 
     cur = conn.cursor()
-    cur.execute("SELECT Temperature FROM Temperature")
+    cur.execute("SELECT Temperature FROM Wind")
 
     rows = cur.fetchall()
 
@@ -57,7 +57,7 @@ def SelectAngle(conn):
     WindDegreeTable = []
     
     cur = conn.cursor()
-    cur.execute("SELECT Angle FROM Wind")
+    cur.execute("SELECT DegreeOfWind FROM Wind")
 
     rows = cur.fetchall()
 
@@ -66,3 +66,7 @@ def SelectAngle(conn):
 
     cur.close()
     return WindDegreeTable
+
+TableTemperature= SelectTemperature(create_connection(database)) #temperature in Warsaw
+TableSpeed = SelectSpeed(create_connection(database)) #speed of wind in Warsaw
+TableDegree= SelectAngle(create_connection(database)) #degree of wind

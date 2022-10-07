@@ -9,10 +9,10 @@ except Exception as e:
     print("Error", str(e))
         
 
-def InsertWindSpeed(WindSpeed,Winddeg):
+def InsertWindSpeed(WindSpeed,Winddeg,Temperature):
     try:
         cur = conn.cursor()
-        sql = 'INSERT INTO Wind (ID,SpeedOfWind,Angle) VALUES( 0,1,1)' #Adding values of speed and angle of wind to database 
+        sql = 'INSERT INTO Wind (ID,SpeedOfWind,DegreeOfWind,Temperature) VALUES( 0,1,1)' #Adding values of speed and angle of wind to database 
         cur.execute(sql)
         conn.commit()
         conn.close()
@@ -20,4 +20,4 @@ def InsertWindSpeed(WindSpeed,Winddeg):
     except Exception as e:
         print(e)
      
-InsertWindSpeed(weather.SpeedOfWind,weather.DegreeOfWind)
+InsertWindSpeed(weather.SpeedOfWind,weather.DegreeOfWind,weather.Temperature)

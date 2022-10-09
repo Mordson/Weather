@@ -17,7 +17,7 @@ def InsertWindSpeed(WindSpeed,Winddeg,Temperature):
         sql = "INSERT INTO Wind (SpeedOfWind,DegreeOfWind,Temperature) VALUES(?,?,?)" #Adding values of speed and angle of wind to database 
         cur.execute(sql,val1) #executing sql insert with values from api 
         conn.commit() #executing sql insert with values from api 
-        
+        conn.close()
         
     except Exception as e:
         print(e)
@@ -38,10 +38,10 @@ def InsertDate():
         sql =  "INSERT INTO Date (Day, Month, Year) VALUES(?,?,?)"
         cur.execute(sql,Date)
         conn.commit() #executing sql insert with values from api 
+        conn.close()
 
     except Exception as e:
         print(e)
 
 InsertWindSpeed(weather.SpeedOfWind,weather.DegreeOfWind,weather.Temperature)
 InsertDate()
-conn.close()

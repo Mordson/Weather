@@ -1,5 +1,6 @@
 import sqlite3
 import weather
+import datetime
 
 try:
     conn = sqlite3.connect('WeatherDB.db') #creating database connection
@@ -8,7 +9,6 @@ try:
 except Exception as e:
     print("Error", str(e))
         
-
 def InsertWindSpeed(WindSpeed,Winddeg,Temperature):
     try:
         val1 = (WindSpeed,Winddeg,Temperature)
@@ -22,4 +22,26 @@ def InsertWindSpeed(WindSpeed,Winddeg,Temperature):
     except Exception as e:
         print(e)
      
+def InsertDate():
+    try:
+        # using now() to get current time
+        current_time = datetime.datetime.now()
+
+        # Attributes of now()
+        CurrentDay = current_time.day
+        CurrentMonth = current_time.month
+        CurrentYear = current_time.year
+        Date = (CurrentDay,CurrentMonth,CurrentYear)
+
+        #Inserting Date to Database
+        cur = conn.cursor()
+        sql =  "INSERT INTO Date (Day, Month, Year) VALUES(?,?,?)"
+        cur.execute(sql,Date)
+        conn.commit() #executing sql insert with values from api 
+        conn.close()
+
+    except Exception as e:
+        print(e)
+
 InsertWindSpeed(weather.SpeedOfWind,weather.DegreeOfWind,weather.Temperature)
+InsertDate()

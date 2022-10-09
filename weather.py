@@ -1,7 +1,7 @@
 import requests
-import secrets
 
 url = 'https://api.openweathermap.org/data/2.5/weather?lat=52.23&lon=21.01&appid=f96032cf675ea0097f776d08a25c4819&units=metric&lang=pl&wind.direction.value'.format()
+
 def GetJson(url): #this function returns requests from API
     res = requests.get(url)
     response = res.json()

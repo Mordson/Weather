@@ -11,10 +11,12 @@ except Exception as e:
 
 def InsertWindSpeed(WindSpeed,Winddeg,Temperature):
     try:
+        val1 = (WindSpeed,Winddeg,Temperature)
+        
         cur = conn.cursor()
-        sql = 'INSERT INTO Wind (ID,SpeedOfWind,DegreeOfWind,Temperature) VALUES( 0,1,1)' #Adding values of speed and angle of wind to database 
-        cur.execute(sql)
-        conn.commit()
+        sql = "INSERT INTO Wind (SpeedOfWind,DegreeOfWind,Temperature) VALUES(?,?,?)" #Adding values of speed and angle of wind to database 
+        cur.execute(sql,val1) #executing sql insert with values from api 
+        conn.commit() #executing sql insert with values from api 
         conn.close()
         
     except Exception as e:

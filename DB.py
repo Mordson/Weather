@@ -11,6 +11,7 @@ except Exception as e:
         
 def InsertWindSpeed(WindSpeed,Winddeg,Temperature):
     try:
+        
         val1 = (WindSpeed,Winddeg,Temperature)
         
         cur = conn.cursor()

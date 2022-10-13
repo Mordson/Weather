@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import GetData as GD
-
-# Data for plotting
-t = np.arange(0.0, 2.0, 0.01)
-s = 1 + np.sin(2 * np.pi * t)
-
-fig, ax = plt.subplots()
-ax.plot(t, s)
-
-ax.set(xlabel='time (s)', ylabel='voltage (mV)',
-       title='About as simple as it gets, folks')
-ax.grid()
-
+import pandas as pd
+ 
+# create data
+x=range(1,41)
+values=np.random.uniform(size=40)
+ 
+# stem function
+plt.stem(x, values)
+plt.ylim(0, 1.2)
+plt.show()
+ 
+# stem function: If x is not provided, a sequence of numbers is created by python:
+plt.stem(values)
 plt.show()

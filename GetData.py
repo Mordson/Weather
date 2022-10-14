@@ -1,7 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 
-database = r"WeatherDB.db"
+database = r"Weather.db"
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database"""

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import GetData as GD
-import pandas as pd
+import pandas as pd 
  
 # create data
 x=range(1,41)

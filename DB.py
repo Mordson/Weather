@@ -3,7 +3,7 @@ import weather
 import datetime
 
 try:
-    conn = sqlite3.connect('WeatherDB.db') #creating database connection
+    conn = sqlite3.connect('Weather.db') #creating database connection
     print("Połączono")
 
 except Exception as e:
@@ -28,15 +28,16 @@ def InsertDate():
         current_time = datetime.datetime.now()
 
         # Attributes of now()
-        CurrentDay = current_time.day
-        CurrentMonth = current_time.month
-        CurrentYear = current_time.year
-        Date = (CurrentDay,CurrentMonth,CurrentYear)
-
+        CurrentDay = str(current_time.day)
+        CurrentMonth = str(current_time.month)
+        CurrentYear = str(current_time.year)
+        
+        StringDate = (CurrentYear + "-" + CurrentMonth + "-" + CurrentDay)
+ 
         #Inserting Date to Database
         cur = conn.cursor()
-        sql =  "INSERT INTO Date (Day, Month, Year) VALUES(?,?,?)"
-        cur.execute(sql,Date)
+        sql =  "INSERT INTO Date(Today) VALUES(?)"
+        cur.execute(sql,[StringDate])
         conn.commit() #executing sql insert with values from api 
 
     except Exception as e:

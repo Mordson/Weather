@@ -1,17 +1,17 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import GetData as GD
-import pandas as pd 
- 
+
 # create data
-x=GD.TableDate
-values = GD.TableTemperature
- 
-# stem function
-plt.stem(x, values)
-plt.ylim(0, 1.2)
-plt.show()
- 
-# stem function: If x is not provided, a sequence of numbers is created by python:
-plt.stem(values)
+Date= GD.TableDate
+Temperature = GD.TableTemperature
+
+figure = plt.figure()
+plt.axes = figure.add_subplot(1,1,1)
+
+plt.axes.bar(
+    range(len(Date)),
+    Temperature,
+    tick_label = Date
+)
+
 plt.show()

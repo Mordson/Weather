@@ -67,6 +67,27 @@ def SelectAngle(conn):
     cur.close()
     return WindDegreeTable
 
+def SelectDate(conn):
+    """
+    Select Speed of angle of wind and pass it to table
+    """
+    
+    DateTable = []
+    
+    cur = conn.cursor()
+    cur.execute("SELECT Today FROM Date")
+
+    rows = cur.fetchall()
+
+    for row in rows:
+       DateTable.append(row[0])
+
+    cur.close()
+    
+    print (DateTable)
+    return DateTable
+
 TableTemperature= SelectTemperature(create_connection(database)) #temperature in Warsaw
 TableSpeed = SelectSpeed(create_connection(database)) #speed of wind in Warsaw
 TableDegree= SelectAngle(create_connection(database)) #degree of wind
+TableDate = SelectDate(create_connection(database))

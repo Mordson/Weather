@@ -4,8 +4,8 @@ import GetData as GD
 import pandas as pd 
  
 # create data
-x=range(1,41)
-values=np.random.uniform(size=40)
+x=GD.TableDate
+values = GD.TableTemperature
  
 # stem function
 plt.stem(x, values)

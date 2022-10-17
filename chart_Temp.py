@@ -14,4 +14,7 @@ plt.axes.bar(
     tick_label = Date
 )
 
+plt.xlabel("Date")
+plt.ylabel("Temperature in C")
+
 plt.show()

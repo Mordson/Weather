@@ -15,4 +15,7 @@ plt.axes.bar(
     tick_label = Date
 )
 
+plt.xlabel("Date")
+plt.ylabel("Speed in m/s")
+
 plt.show()

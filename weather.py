@@ -4,8 +4,8 @@ url = 'https://api.openweathermap.org/data/2.5/weather?lat=52.23&lon=21.01&appid
 
 def GetJson(url): #this function returns requests from API
     res = requests.get(url)
-    response = res.json()
-    return response
+    response = res.json() #requests from API
+    return response #returning requests from API
 
 def Temp(respone): #this function returns temperature and speed of wind in Warsaw
     temp = respone['main']['temp'] #temperature in Warsaw

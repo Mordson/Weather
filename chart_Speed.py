@@ -1,8 +1,8 @@
-import matplotlib.pyplot as plt
-import GetData as GD
+import matplotlib.pyplot as plt #Importing matplotlib
+import GetData as GD #Importing GetData.py
 
 # create data
-Date= GD.TableDate
+Date= GD.TableDate #Date
 Speed = GD.TableSpeed #Speed of wind
 
 figure = plt.figure() #Creating figure

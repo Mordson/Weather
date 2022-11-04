@@ -1,6 +1,6 @@
-import sqlite3
-import weather
-import datetime
+import sqlite3 #Importing sqlite3
+import weather #Importing weather.py
+import datetime #Importing datetime
 
 try:
     conn = sqlite3.connect('Weather.db') #creating database connection

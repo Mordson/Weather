@@ -11,40 +11,40 @@ def create_connection(db_file):
     except Error as e:
         print(e)
 
-    return conn
+    return conn #Returns connection
 
 def SelectTemperature(conn):
     """
     Select Speed of angle of wind and pass it to table
     """
-    TemperatureTable = []
+    TemperatureTable = [] #Creating table for temperature
 
-    cur = conn.cursor()
-    cur.execute("SELECT Temperature FROM Wind")
+    cur = conn.cursor() 
+    cur.execute("SELECT Temperature FROM Wind") #Selecting Temperature from database
 
-    rows = cur.fetchall()
+    rows = cur.fetchall() #Fetching data from database
 
     for row in rows:
-        TemperatureTable.append(row[0])
+        TemperatureTable.append(row[0]) #Adding temperature to table
 
     cur.close()
     
-    return TemperatureTable
+    return TemperatureTable #Returns table with temperature
 
 def SelectSpeed(conn):
     """
     Select Speed of wind and pass it to table
     """
     
-    SpeedOfWindTable = []
+    SpeedOfWindTable = [] #Creating table for speed of wind
 
     cur = conn.cursor()
-    cur.execute("SELECT SpeedOfWind FROM Wind")
+    cur.execute("SELECT SpeedOfWind FROM Wind") #Selecting Speed of wind from database
 
-    rows = cur.fetchall()
+    rows = cur.fetchall() #Fetching data from database
 
     for row in rows:
-        SpeedOfWindTable.append(row[0])
+        SpeedOfWindTable.append(row[0]) #Adding speed of wind to table
 
     cur.close()
     return SpeedOfWindTable
@@ -57,15 +57,15 @@ def SelectAngle(conn):
     WindDegreeTable = []
     
     cur = conn.cursor()
-    cur.execute("SELECT DegreeOfWind FROM Wind")
+    cur.execute("SELECT DegreeOfWind FROM Wind") #Selecting Degree of wind from database
 
-    rows = cur.fetchall()
+    rows = cur.fetchall() #Fetching data from database
 
-    for row in rows:
-        WindDegreeTable.append(row[0])
+    for row in rows: 
+        WindDegreeTable.append(row[0]) #Adding angle of wind to table
 
-    cur.close()
-    return WindDegreeTable
+    cur.close() 
+    return WindDegreeTable 
 
 def SelectDate(conn):
     """
@@ -74,20 +74,20 @@ def SelectDate(conn):
     
     DateTable = []
     
-    cur = conn.cursor()
-    cur.execute("SELECT Today FROM Date")
+    cur = conn.cursor() 
+    cur.execute("SELECT Today FROM Date") #Selecting Date from database
 
     rows = cur.fetchall()
 
     for row in rows:
-       DateTable.append(row[0])
+       DateTable.append(row[0]) #Adding Date to table
 
     cur.close()
     
-    print (DateTable)
-    return DateTable
+    print (DateTable) #Prints date table
+    return DateTable #Returns date table
 
 TableTemperature= SelectTemperature(create_connection(database)) #temperature in Warsaw
 TableSpeed = SelectSpeed(create_connection(database)) #speed of wind in Warsaw
 TableDegree= SelectAngle(create_connection(database)) #degree of wind
-TableDate = SelectDate(create_connection(database))
+TableDate = SelectDate(create_connection(database)) #date

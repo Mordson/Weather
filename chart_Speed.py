@@ -16,5 +16,6 @@ plt.axes.bar(
 
 plt.xlabel("Date") #X label
 plt.ylabel("Speed in m/s") #Y label
+plt.title("Speed of wind in m/s") #Title
 
 plt.show() #Showing chart

@@ -16,5 +16,6 @@ plt.axes.bar(
 
 plt.xlabel("Date") #X label
 plt.ylabel("Temperature in C") #Y label
+plt.title("Temperature in C") #Title
 
 plt.show() #Showing chart
